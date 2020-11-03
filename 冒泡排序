@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<Windows.h>
+#define SIZE 5
+int main()
+{	
+	//初始化一个五个元素的整形数组，输入五个元素值
+	printf("请输入五个数字：\n");
+	int arr[SIZE] = {0};
+	for (int i = 0; i < SIZE; i++)
+		scanf("%d", &arr[i]);
+	
+	//外层循环遍历数组，元素作为左边的比较数
+	for (int i = 0; i < SIZE; i++)
+	{
+		//内层循环遍历数组，元素作为右边的比较数，表达式1初始化为i+1，避免元素自己和自己比较
+		for (int j = i+1; j < SIZE; j++)
+		{
+			int temp = 0;//创建一个临时空整形变量，用于交换元素
+			//比较两个数，如果左边的比右边的大，则交换两个数
+			if (arr[i] > arr[j])
+			{
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			
+			}
+		}
+	}
+	
+	//最后遍历输出排好序的数组
+	printf("排序结果：\n");
+	for (int i = 0; i < SIZE; i++)
+	printf("%d\t", arr[i]);
+
+	system("pause");
+	return 0;
+}
